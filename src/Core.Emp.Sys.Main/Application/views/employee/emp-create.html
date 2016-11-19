@@ -1,0 +1,37 @@
+﻿<div class="container">
+	<h1>{{mTitle}}</h1>
+
+	<form [formGroup]="mFormCreate" (ngSubmit)="OnSubmitForm($event, mFormCreate.value)">
+
+		<!--Form Control Component Sample-->
+		<form-input [TextLabel]="'User ID'"
+					[IsError]="mFormCreate.controls['UserID'].invalid"
+					[TextControl]="mFormCreate.controls['UserID']"
+					[PlaceHolder]="'Enter User ID'">
+		</form-input>
+
+		<form-input [TextLabel]="'First Name'"
+					[IsError]="mFormCreate.controls['FirstName'].invalid"
+					[TextControl]="mFormCreate.controls['FirstName']"
+					[PlaceHolder]="'Enter First Name'">
+		</form-input>
+
+		<form-input [TextLabel]="'Last Name'"
+					[IsError]="mFormCreate.controls['LastName'].invalid"
+					[TextControl]="mFormCreate.controls['LastName']"
+					[PlaceHolder]="'Enter Last Name'">
+		</form-input>
+
+		<!--Form Model Recative Simple Sample-->
+		<div class="form-group" [ngClass]="{'has-error': !mFormCreate.controls['City'].valid}">
+			<label class="control-label">
+				City
+				<input class="form-control" type="text" placeholder="City Address..."
+					   [formControl]="mFormCreate.controls['City']" />
+			</label>
+		</div>
+
+		<!--Submit Button Processing-->
+		<button type="submit" class="btn btn-default" [disabled]="!mFormCreate.valid">Submit</button>
+	</form>
+</div>

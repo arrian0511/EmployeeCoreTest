@@ -1,0 +1,26 @@
+<div class="container">
+	<span class="text-success">{{Title}}</span>
+	<span class="text-warning">{{Message}}</span>
+
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>User ID</th>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>City</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let _item of mItems">
+				<td>{{_item.UserID}}</td>
+				<td>{{_item.FirstName}}</td>
+				<td>{{_item.LastName}}</td>
+				<td>{{_item.City}}</td>
+				<td>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

@@ -1,0 +1,7 @@
+﻿
+<div class="form-group" [ngClass]="{'has-error': IsError}">
+	<label class="control-label">
+		{{TextLabel}}
+		<input class="form-control" type="text" [formControl]="TextControl" placeholder="{{PlaceHolder}}" />
+	</label>
+</div>
