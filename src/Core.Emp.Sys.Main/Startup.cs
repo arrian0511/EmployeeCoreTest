@@ -10,6 +10,7 @@ using Microsoft.Extensions.Logging;
 using System.IO;
 using Core.Emp.Sys.Dal.Context;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Core.Emp.Sys.Main
 {
@@ -22,7 +23,9 @@ namespace Core.Emp.Sys.Main
 			var connection = @"Server=(localdb)\mssqllocaldb;Database=EmployeeSystemDB;Trusted_Connection=True;";
 			services.AddDbContext<EmployeeSystemContext>(options => options.UseSqlServer(connection, act => act.MigrationsAssembly ("Core.Emp.Sys.Main")));
 
-			services.AddMvc ();
+			services.AddMvc (_setup => {
+				_setup.CacheProfiles.Add ("PrivateCache", new CacheProfile () { Duration=0, Location=ResponseCacheLocation.None, NoStore=true });
+			});
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
