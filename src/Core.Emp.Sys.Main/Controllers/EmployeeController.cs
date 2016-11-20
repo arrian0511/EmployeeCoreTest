@@ -11,6 +11,7 @@ using Core.Emp.Sys.Dal.Service;
 namespace Core.Emp.Sys.Main.Controllers
 {
 	[Route("api/[controller]")]
+	[ResponseCache(CacheProfileName = "PrivateCache")]
 	public class EmployeeController : Controller
 	{
 		private IEntityService<int, Employee>	_EmployeeService = null;		// Employee Service

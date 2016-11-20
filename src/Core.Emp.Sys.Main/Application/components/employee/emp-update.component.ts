@@ -107,9 +107,7 @@ export class EmpUpdateComponent implements OnInit
 												_item, this._mActId);
 		data.subscribe(response => {
 			this.mResponse = response;
+			this._mRouter.navigate( ['/employee'] );
 		});
-
-		/// Navigate to Index
-		this._mRouter.navigate(['/employee']);
 	}
 }
