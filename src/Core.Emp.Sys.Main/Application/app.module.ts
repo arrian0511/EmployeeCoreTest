@@ -2,6 +2,7 @@
 import {HttpModule} from "@angular/http";
 import {BrowserModule} from "@angular/platform-browser";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {ChartsModule} from "ng2-charts/ng2-charts";
 import "rxjs/Rx";
 
 import {AppService} from "./services/app.service";
@@ -34,6 +35,7 @@ import {AppRouting} from "./app.routing";
 		HttpModule,
 		FormsModule,
 		ReactiveFormsModule,
+		ChartsModule,
 		AppRouting
 	],
 	providers: [

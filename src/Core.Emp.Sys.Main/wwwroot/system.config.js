@@ -23,6 +23,7 @@
 			'@angular/http': 'npm:@angular/http/bundles/http.umd.js',
 			'@angular/router': 'npm:@angular/router/bundles/router.umd.js',
 			'@angular/forms': 'npm:@angular/forms/bundles/forms.umd.js',
+			'ng2-charts': 'npm:ng2-charts',
 
 			// other libraries
 			'rxjs': 'npm:rxjs',
@@ -36,6 +37,10 @@
 				defaultExtension: 'js'
 			},
 			rxjs: {
+				defaultExtension: 'js'
+			},
+			'ng2-charts': {
+				main: './bundles/ng2-charts.min.js',
 				defaultExtension: 'js'
 			},
 			'angular-in-memory-web-api': {

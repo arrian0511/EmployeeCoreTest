@@ -20,8 +20,10 @@ var srcPaths = {
 		'node_modules/systemjs/dist/**',
 		'node_modules/typescript/**',
 		'node_modules/ng2-bootstrap/**',
+		'node_modules/bootstrap/**',
 		'node_modules/jquery/**',
-		'node_modules/bootstrap/**'
+		'node_modules/ng2-charts/**',
+		'node_modules/chart.js/**'
 	],
 	styles: [
 		'Styles/**'
