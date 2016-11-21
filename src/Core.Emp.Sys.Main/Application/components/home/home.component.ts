@@ -66,4 +66,12 @@ export class HomeComponent
   public chartHovered(e:any):void {
     console.log(e);
   }
+
+
+  public dt:Date = new Date();
+  public minDate:Date = null;
+
+  public GetDate(): number {
+	  return this.dt.getTime ();
+  }
 }

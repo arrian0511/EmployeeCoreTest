@@ -23,7 +23,8 @@ var srcPaths = {
 		'node_modules/bootstrap/**',
 		'node_modules/jquery/**',
 		'node_modules/ng2-charts/**',
-		'node_modules/chart.js/**'
+		'node_modules/chart.js/**',
+		'node_modules/moment/**'
 	],
 	styles: [
 		'Styles/**'

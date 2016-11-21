@@ -3,6 +3,7 @@ import {HttpModule} from "@angular/http";
 import {BrowserModule} from "@angular/platform-browser";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {ChartsModule} from "ng2-charts/ng2-charts";
+import {Ng2BootstrapModule} from "ng2-bootstrap/ng2-bootstrap";
 import "rxjs/Rx";
 
 import {AppService} from "./services/app.service";
@@ -35,6 +36,7 @@ import {AppRouting} from "./app.routing";
 		HttpModule,
 		FormsModule,
 		ReactiveFormsModule,
+		Ng2BootstrapModule,
 		ChartsModule,
 		AppRouting
 	],
