@@ -51,11 +51,13 @@ gulp.task('clean:app', function () {
 // and place them to wwwroot/app, together with their js.map files.
 gulp.task('build:app', ['clean:app'], function () {
 	return gulp.src(srcPaths.app)
-		.pipe(gp_sourcemaps.init())
-		.pipe(gp_typescript(require('./tsconfig.json').compilerOptions))
-		.pipe(gp_uglify({ mangle: false }))
-		.pipe(gp_sourcemaps.write('/'))
-		.pipe(gulp.dest(desPaths.app));
+				.pipe(gp_sourcemaps.init())
+				.pipe(gp_typescript(require('./tsconfig.json').compilerOptions))
+				.pipe(gp_sourcemaps.write('.', {
+					includeContent: false,
+					sourceRoot: '../../Application'
+				}))
+				.pipe(gulp.dest(desPaths.app));
 });
 
 // Delete wwwroot/lib contents
@@ -98,5 +100,8 @@ gulp.task('copy:styles', ['clean:styles'], function () {
 // Default
 gulp.task('default', ['copy:lib', 'build:app', 'copy:views', 'copy:styles']);
 
-// During Compilation
-gulp.task('compile', ['build:app', 'copy:views', 'copy:styles']);
+// Compile All Including Views and Style
+gulp.task('compile:all', ['build:app', 'copy:views', 'copy:styles']);
+
+// Copy Display Only
+gulp.task('copydisplay', ['copy:views', 'copy:styles']);
