@@ -7,10 +7,10 @@
 	public City:		string;
 
 	constructor() {
-		this.Id		   = 0;
-		this.UserID    = "";
-		this.FirstName = "";
-		this.LastName  = "";
-		this.City      = "";
+		this.Id 		= 0;
+		this.UserID		= "";
+		this.FirstName	= "";
+		this.LastName	= "";
+		this.City		= "";
 	}
 }

@@ -1,15 +1,19 @@
 ﻿import {Component} from "@angular/core";
 
+import {TAppDefinition} from "../../definition/app.definition";
+
 @Component({
-	selector: "home",
-	templateUrl: "views/home/home.html"
+  selector: "home",
+  templateUrl: "views/home/home.html"
 })
 
 export class HomeComponent
 {
+  public mData:string   = TAppDefinition.CDEF_SAMPLE;
+  
   // lineChart
   public lineChartData:Array<any> = [
-    {data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A'},
+    {data: [70, 59, 80, 81, 56, 55, 40], label: 'Series A'},
     {data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B'},
     {data: [18, 48, 77, 9, 100, 27, 40], label: 'Series C'}
   ];
@@ -74,4 +78,10 @@ export class HomeComponent
   public GetDate(): number {
 	  return this.dt.getTime ();
   }
+}
+
+export enum EData
+{
+  NONE = 0,
+  NAME = 1
 }
