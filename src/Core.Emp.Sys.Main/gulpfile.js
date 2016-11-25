@@ -24,6 +24,7 @@ var srcPaths = {
 		'node_modules/bootflat/**',
 		'node_modules/jquery/**',
 		'node_modules/ng2-charts/**',
+		'node_modules/ng2-sidebar/**',
 		'node_modules/chart.js/**',
 		'node_modules/moment/**'
 	],

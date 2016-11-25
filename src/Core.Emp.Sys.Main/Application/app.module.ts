@@ -19,6 +19,10 @@ import {EmpUpdateComponent} from "./components/employee/emp-update.component";
 
 import {FormInputComponent} from "./components/templates/form-input.component";
 
+import {SideNavComponent} from "./components/templates/side-nav.component";
+
+import { SidebarModule } from 'ng2-sidebar';
+
 import {AppRouting} from "./app.routing";
 
 @NgModule({
@@ -29,7 +33,8 @@ import {AppRouting} from "./app.routing";
 		EmpDetailsComponent,
 		EmpCreateComponent,
 		EmpUpdateComponent,
-		FormInputComponent
+		FormInputComponent,
+		SideNavComponent
 	],
 	imports: [
 		BrowserModule,
@@ -38,6 +43,7 @@ import {AppRouting} from "./app.routing";
 		ReactiveFormsModule,
 		Ng2BootstrapModule,
 		ChartsModule,
+		SidebarModule,
 		AppRouting
 	],
 	providers: [

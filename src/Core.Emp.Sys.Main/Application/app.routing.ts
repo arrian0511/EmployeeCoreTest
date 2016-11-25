@@ -8,6 +8,8 @@ import {EmpDetailsComponent} from "./components/employee/emp-details.component";
 import {EmpCreateComponent} from "./components/employee/emp-create.component";
 import {EmpUpdateComponent} from "./components/employee/emp-update.component";
 
+import {SideNavComponent} from "./components/templates/side-nav.component";
+
 const routes: Routes = [
 	{
 		path: '',
@@ -18,6 +20,10 @@ const routes: Routes = [
 		path: 'home',
 		component: HomeComponent
 	},
+	{
+		path: 'sidenav',
+		component: SideNavComponent
+	},	
 	{
 		path: 'employee',
 		component: EmpIndexComponent

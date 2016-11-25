@@ -24,6 +24,7 @@
 			'@angular/router': 'npm:@angular/router/bundles/router.umd.js',
 			'@angular/forms': 'npm:@angular/forms/bundles/forms.umd.js',
 			'ng2-charts': 'npm:ng2-charts',
+			'ng2-sidebar': 'npm:ng2-sidebar',
 			'moment': 'npm:moment/moment.js',
 			'ng2-bootstrap/ng2-bootstrap': 'npm:ng2-bootstrap/bundles/ng2-bootstrap.umd.js',
 
@@ -45,6 +46,10 @@
 				main: './bundles/ng2-charts.min.js',
 				defaultExtension: 'js'
 			},
+			'ng2-sidebar': {
+				main: './lib/index.js',
+				defaultExtension: 'js'
+			},			
 			'angular-in-memory-web-api': {
 				main: './index.js',
 				defaultExtension: 'js'
