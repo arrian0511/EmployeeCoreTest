@@ -21,13 +21,14 @@ var srcPaths = {
 		'node_modules/typescript/**',
 		'node_modules/ng2-bootstrap/**',
 		'node_modules/bootstrap/**',
+		'node_modules/bootflat/**',
 		'node_modules/jquery/**',
 		'node_modules/ng2-charts/**',
 		'node_modules/chart.js/**',
 		'node_modules/moment/**'
 	],
-	styles: [
-		'Styles/**'
+	contents: [
+		'Contents/**'
 	],
 	views: [
 		'Application/views/**'
@@ -37,7 +38,7 @@ var srcPaths = {
 var desPaths = {
 	app: 'wwwroot/app/',
 	lib: 'wwwroot/lib/',
-	styles: 'wwwroot/styles/',
+	contents: 'wwwroot/contents/',
 	views: 'wwwroot/views/',
 }
 
@@ -85,23 +86,23 @@ gulp.task('copy:views', ['clean:views'], function () {
 		.pipe(gulp.dest(desPaths.views));
 });
 
-// Delete styles contents
-gulp.task('clean:styles', function () {
-	return gulp.src(desPaths.styles + "*", { read: false })
+// Delete Contents contents
+gulp.task('clean:contents', function () {
+	return gulp.src(desPaths.contents + "*", { read: false })
 		.pipe(gp_clean({ force: true }));
 });
 
-// Copy styles contens
-gulp.task('copy:styles', ['clean:styles'], function () {
-	return gulp.src(srcPaths.styles)
-		.pipe(gulp.dest(desPaths.styles));
+// Copy Contents contens
+gulp.task('copy:contents', ['clean:contents'], function () {
+	return gulp.src(srcPaths.contents)
+		.pipe(gulp.dest(desPaths.contents));
 });
 
 // Default
-gulp.task('default', ['copy:lib', 'build:app', 'copy:views', 'copy:styles']);
+gulp.task('default', ['copy:lib', 'build:app', 'copy:views', 'copy:contents']);
 
 // Compile All Including Views and Style
-gulp.task('compile:all', ['build:app', 'copy:views', 'copy:styles']);
+gulp.task('compile:all', ['build:app', 'copy:views', 'copy:contents']);
 
 // Copy Display Only
-gulp.task('copydisplay', ['copy:views', 'copy:styles']);
+gulp.task('copydisplay', ['copy:views', 'copy:contents']);
