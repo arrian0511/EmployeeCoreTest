@@ -19,9 +19,9 @@ import {EmpUpdateComponent} from "./components/employee/emp-update.component";
 
 import {FormInputComponent} from "./components/templates/form-input.component";
 
-import {SideNavComponent} from "./components/templates/side-nav.component";
+import {SideBarComponent} from "./components/templates/side-bar.component";
 
-import { SidebarModule } from 'ng2-sidebar';
+import {SidebarModule} from 'ng2-sidebar';
 
 import {AppRouting} from "./app.routing";
 
@@ -34,7 +34,7 @@ import {AppRouting} from "./app.routing";
 		EmpCreateComponent,
 		EmpUpdateComponent,
 		FormInputComponent,
-		SideNavComponent
+		SideBarComponent
 	],
 	imports: [
 		BrowserModule,

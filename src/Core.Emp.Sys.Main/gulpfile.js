@@ -68,7 +68,7 @@ gulp.task('clean:lib', function () {
 		.pipe(gp_clean({ force: true }));
 });
 
-// Copy node_modules contens
+// Copy node_modules contents
 gulp.task('copy:lib', ['clean:lib'], function () {
 	return gulp.src(srcPaths.lib, { base: 'node_modules'})
 		//.pipe(gp_uglify({ mangle: false }))
@@ -93,17 +93,29 @@ gulp.task('clean:contents', function () {
 		.pipe(gp_clean({ force: true }));
 });
 
-// Copy Contents contens
+// Compile Less contents
 gulp.task('copy:contents', ['clean:contents'], function () {
-	return gulp.src(srcPaths.contents)
+	/// Compile Less Files and Move to CSS Folder
+	gulp.src(srcPaths.contents + '/less/application/main.less')
+		.pipe(gp_sourcemaps.init())
+		.pipe(gp_less())
+		.pipe(gp_sourcemaps.write('.'))
+		.pipe(gulp.dest(desPaths.contents))
+
+	/// Copy CSS Directly
+	gulp.src(srcPaths.contents + '/*.css')
 		.pipe(gulp.dest(desPaths.contents));
+
+	/// Copy JS Directly
+	return gulp.src(srcPaths.contents + '/*.js')
+				.pipe(gulp.dest(desPaths.contents));
 });
 
 // Default
 gulp.task('default', ['copy:lib', 'build:app', 'copy:views', 'copy:contents']);
 
 // Compile All Including Views and Style
-gulp.task('compile:all', ['build:app', 'copy:views', 'copy:contents']);
+gulp.task('compile:all', ['build:app', 'copy:contents', 'copy:views' ]);
 
 // Copy Display Only
 gulp.task('copydisplay', ['copy:views', 'copy:contents']);
