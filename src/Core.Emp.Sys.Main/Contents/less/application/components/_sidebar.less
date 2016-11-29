@@ -1,0 +1,61 @@
+.main-sidebar {
+	position: absolute;
+	left: 0px;
+	min-height: 100%;
+	width: 230px;
+	z-index: 810;
+	border-radius: 0;
+	border: 1px solid;
+
+	.sidebar-hide & {
+		@media (min-width: @screen-sm) {
+			.translate(-@sidebar-width, 0);
+		}
+	}
+	.sidebar-show & {
+		@media (max-width: @screen-xs-max) {
+			.translate(-@sidebar-width, 0);
+		}
+	}
+}
+
+.sidebar {
+	padding-bottom: 10px;
+}
+
+.sidebar-form {
+	input:focus {
+		border-color: transparent;
+	}
+}
+
+/// User Panel
+.user-panel {
+	position: relative;
+	width: 100%;
+	padding: 10px;
+	.clearfix();
+	> .user-image > img {
+		float: left;
+		position: relative;
+		width: 100%;
+		max-width: 45px;
+		height: auto;
+		border-radius: 100%;
+	}
+	> .user-info {
+		float: left;
+		padding: 5px 5px 5px 15px;
+		line-height: 1;
+		position: absolute;
+		left: 55px;
+		> p {
+			font-weight: 600;
+			margin-bottom: 9px;
+		}
+		> a {
+			text-decoration: none;
+			padding-right: 5px;
+		}
+	}
+}

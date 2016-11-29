@@ -1,0 +1,54 @@
+body {
+	font-family: 'Source Sans Pro', sans-serif;
+}
+
+/* H1 - H6 font */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+	font-family: 'Source Sans Pro', sans-serif;
+}
+
+.content-main {
+	float: left;
+	position: absolute;
+	top: 50px;
+	width: 100%;
+}
+
+.content-sidebar {
+	float: left;
+	position: relative;
+	width: auto;
+	min-height: 1px;
+}
+
+.content-wrapper {
+	min-height: 100%;
+	margin-left: @sidebar-width;
+	z-index: 800;
+
+	@media (max-width: @screen-xs-max) {
+		margin-left: 0;
+	}
+
+	.sidebar-hide & {
+		@media (min-width: @screen-sm) {
+			margin-left: 0;
+		}
+	}
+	.sidebar-show & {
+		@media (max-width: @screen-xs-max) {
+			.translate(@sidebar-width, 0);
+		}
+	}
+}
