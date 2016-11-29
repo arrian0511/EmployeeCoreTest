@@ -28,5 +28,17 @@
 	</div>
 </div>-->
 
+<div class="content-main">
+	<side-bar class="content-sidebar" [iToggleFlag]="mToggleSidebar">This is side nav</side-bar>
 
-<side-bar>This is side nav</side-bar>
+	<div class="content-wrapper">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<button class="btn btn-success btn-sm" (click)="mToggleSidebar = !mToggleSidebar">Toggle SideBar</button>
+			</div>
+			<div class="panel-body">
+				This is panel data
+			</div>
+		</div>
+	</div>
+</div>

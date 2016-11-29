@@ -103,11 +103,15 @@ gulp.task('copy:contents', ['clean:contents'], function () {
 		.pipe(gulp.dest(desPaths.contents))
 
 	/// Copy CSS Directly
-	gulp.src(srcPaths.contents + '/*.css')
+	gulp.src(srcPaths.contents + '/css/**')
+		.pipe(gulp.dest(desPaths.contents));
+
+	/// Copy Images Directly
+	gulp.src(srcPaths.contents + '/img/**')
 		.pipe(gulp.dest(desPaths.contents));
 
 	/// Copy JS Directly
-	return gulp.src(srcPaths.contents + '/*.js')
+	return gulp.src(srcPaths.contents + '/js/**')
 				.pipe(gulp.dest(desPaths.contents));
 });
 
