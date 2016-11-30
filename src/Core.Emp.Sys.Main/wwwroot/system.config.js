@@ -27,6 +27,7 @@
 			'ng2-sidebar': 'npm:ng2-sidebar',
 			'moment': 'npm:moment/moment.js',
 			'ng2-bootstrap/ng2-bootstrap': 'npm:ng2-bootstrap/bundles/ng2-bootstrap.umd.js',
+			'angular2-fontawesome': 'npm:angular2-fontawesome',
 
 			// other libraries
 			'rxjs': 'npm:rxjs',
@@ -49,7 +50,10 @@
 			'ng2-sidebar': {
 				main: './lib/index.js',
 				defaultExtension: 'js'
-			},			
+			},
+			'angular2-fontawesome': { 
+				defaultExtension: 'js'
+			},
 			'angular-in-memory-web-api': {
 				main: './index.js',
 				defaultExtension: 'js'

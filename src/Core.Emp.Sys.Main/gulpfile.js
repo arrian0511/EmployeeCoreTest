@@ -26,7 +26,9 @@ var srcPaths = {
 		'node_modules/ng2-charts/**',
 		'node_modules/ng2-sidebar/**',
 		'node_modules/chart.js/**',
-		'node_modules/moment/**'
+		'node_modules/moment/**',
+		'node_modules/angular2-fontawesome/**',
+		'node_modules/font-awesome/**'
 	],
 	contents: [
 		'Contents/**'

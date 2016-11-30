@@ -1,10 +1,10 @@
-import {Component, Input, trigger, state, style, transition, animate} from '@angular/core';
+import {Component, Input, ElementRef, OnInit, trigger, state, style, transition, animate} from '@angular/core';
 
 @Component({
 	selector: 'side-bar',
 	templateUrl: "views/templates/side-bar.html",
 	inputs: [
-		'iToggleFlag'
+		'iToggleMode'
 	],
 	animations: [
 		trigger("OnToggleSideBar", [
@@ -15,23 +15,17 @@ import {Component, Input, trigger, state, style, transition, animate} from '@ang
 	]
 })
 
-export class SideBarComponent {
-	public		mToggleMode: string;
-	public		iToggleFlag: boolean;
+export class SideBarComponent implements OnInit {
+	public		iToggleMode: string;		// Toggle Mode
 
-	constructor () {
-		this.mToggleMode	= "show";
-		this.iToggleFlag	= true;
+	private	_mElement: ElementRef;
+	constructor (_iElementRef: ElementRef) {
+
+		this._mElement = _iElementRef;
+		this.iToggleMode = "show";
 	}
 
-	public _OnToggleSideBarEvent () {
-		this.iToggleFlag = !this.iToggleFlag;
+	ngOnInit () {
 
-		if (this.iToggleFlag == true) {
-			this.mToggleMode = "show";
-		}
-		else {
-			this.mToggleMode = "hide";
-		}
 	}
 }

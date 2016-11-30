@@ -28,17 +28,39 @@
 	</div>
 </div>-->
 
-<div class="content-main">
-	<side-bar class="content-sidebar" [iToggleFlag]="mToggleSidebar">This is side nav</side-bar>
+<!--Top Navigation-->
+<header>
 
-	<div class="content-wrapper">
-		<div class="panel panel-default">
-			<div class="panel-heading">
-				<button class="btn btn-success btn-sm" (click)="mToggleSidebar = !mToggleSidebar">Toggle SideBar</button>
-			</div>
-			<div class="panel-body">
-				This is panel data
-			</div>
+</header>
+
+
+<div class="content-area">
+	<!--Left Side Bar-->
+	<div class="navbar-default content-sidebar" [ngClass]="{'content-sidebar-extend': mToggleFlag,
+											 				'content-sidebar-collapse': !mToggleFlag}">
+
+		<ul class="nav">
+			<li>
+				<a [routerLink]="['/home']"><i class="fa fa-home fa-lg"></i> <span class="nav-label">Home</span> <span class="label label-primary pull-right">NEW</span></a>
+				<a [routerLink]="['/employee']"><i class="fa fa-apple fa-lg"></i> <span class="nav-label">Employee</span> <span class="label label-primary pull-right">NEW</span></a>
+				<a href="layouts.html"><i class="fa fa-rocket fa-lg"></i> <span class="nav-label">Rocket</span> <span class="label label-primary pull-right">NEW</span></a>
+			</li>
+		</ul>
+	</div>
+
+	<!--Navigation Panel-->
+	<div class="content-main" [ngClass]="{'content-main-collapse': mToggleFlag,
+										  'content-main-extend': !mToggleFlag}">
+
+		<div class="content-header">
+			<h1>
+				<span style="font-size:30px;cursor:pointer" (click)="OnToggleSidebarEvent()">&#9776; Toggle Sidebar</span>
+				<small>Toggle this to remove sidebar</small>
+			</h1>
+		</div>
+
+		<div class="content-value">
+			<router-outlet></router-outlet>
 		</div>
 	</div>
 </div>
