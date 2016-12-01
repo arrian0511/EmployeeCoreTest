@@ -40,32 +40,33 @@
 
 		<ul class="nav">
 			<li class="nav-header">
-				<div class="dropdown">
-					<span class="user-image">
-						<img alt="image" class="img-circle" src="contents/img/user3-128x128.jpg" />
-						<span class="label label-success">{{mStatus}}</span>
+				<span class="user-image">
+					<img alt="image" class="img-circle" src="contents/img/user3-128x128.jpg" />
+					<span class="label label-success">{{mStatus}}</span>
+				</span>
+				<span class="clear">
+					<span class="block m-t-xs">
+						<strong class="font-bold font-color">
+							Arrian Pascual
+						</strong>
 					</span>
-					<a data-toggle="dropdown" class="dropdown-toggle" href="#">
-						<span class="clear">
-							<span class="block m-t-xs">
-								<strong class="font-bold">
-									Arrian Pascual
-								</strong>
-							</span>
-							<span class="text-muted block">
-								Software Developer
-								<b class="caret"></b>
-							</span>
-						</span>
+					<span class="text-muted block">
+					</span>
+				</span>
+					
+				<span dropdown class="dropdown">
+					<a href="#" id="simple-dropdown" dropdownToggle>
+						Software Developer
+						<b class="caret"></b>
 					</a>
-					<ul class="dropdown-menu">
-						<li><a href="profile.html">Profile</a></li>
+					<ul class="dropdown-menu" dropdownMenu aria-labelledby="simple-dropdown">
+						<li ><a href="profile.html">Profile</a></li>
 						<li><a href="contacts.html">Contacts</a></li>
 						<li><a href="mailbox.html">Mailbox</a></li>
 						<li class="divider"></li>
 						<li><a href="login.html">Logout</a></li>
 					</ul>
-				</div>
+				</span>
 			</li>
 			<li class="active">
 				<a [routerLink]="['/home']"><i class="fa fa-home fa-lg"></i> <span class="nav-label">Home</span> <span class="label label-primary pull-right">NEW</span></a>

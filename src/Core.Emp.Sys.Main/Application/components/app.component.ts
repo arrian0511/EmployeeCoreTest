@@ -12,8 +12,8 @@
 		]),
 		trigger('OnAnimateUserPanel', [
 			state('in', style({ opacity: 1, transform: "translateX(40)"})),
-			transition('void => *', [style({opacity: 1, transform: 'translateX(100%)'}), animate('300ms')]),
-			transition('* => void', [style({opacity: 0, transform: 'translateX(0%)'}), animate('300ms')]),
+			transition('void => *', [style({opacity: 0, transform: 'translateX(100%)'}), animate('0.5s')]),
+			transition('* => void', [style({opacity: 0, transform: 'translateX(0%)'}), animate('0.5s')]),
 		])
 	]	
 })
