@@ -1,0 +1,120 @@
+
+
+// Side Bar
+aside {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: @aside-width;
+  height: @aside-height;
+  margin: 0;
+  overflow-x: hidden;
+  font-size: 12px;
+  font-weight: 200;
+  transition: 0.5s;
+  background-color: @aside-bg-color;
+  color: @aside-color;
+	.nav {
+		> li.nav-header {
+			padding: 10px 25px;
+			font-size: 12px;
+			background: url("../../img/patterns/header-profile.png") no-repeat;
+			> .user-image {
+				> img {
+					max-width: 45px;
+					height: auto;
+				}
+			}
+			> .user-info {
+				display: block;
+				> div {
+					display: block;
+				}
+			}
+			> .logo-element {
+				text-align: center;
+				font-size: 18px;
+				font-weight: 600;
+				color: white;
+				display: none;
+				padding: 18px 0;
+			}
+		}
+
+		> li.active {
+			border-left: 4px solid #19aa8d;
+			background: #293846;
+			> a {
+				color: #ffffff;
+			}
+		}
+
+		> li {
+			> a {
+				color: #a7b1c2;
+				font-weight: 600;
+				padding: 14px 20px 14px 25px;
+				> i {
+					margin-right: 6px;
+				}
+			}
+			> a:hover,
+			> a:focus {
+				background-color: #293846;
+				color: white;
+			}
+		}
+
+		.nav-second-level {
+			> li.active {
+				border: none;
+			}
+			li a {
+				padding: 7px 10px 7px 10px;
+				padding-left: 52px;
+			}
+			li:last-child {
+				margin-bottom: 10px;
+			}
+		}
+		.nav-second-level.collapse[style] {
+			height: auto !important;
+		}
+	}
+
+	.special-link {
+		a {
+			background: #1ab394;
+		}
+		a:hover,
+		a:focus {
+			background: #17987e !important;
+		}
+		a span.label {
+			background: #fff;
+			color: #1ab394;
+		}
+	}
+
+	.landing-link {
+		a {
+			background: #1cc09f;
+		}
+		a:hover,
+		a:focus {
+			background: #1ab394 !important;
+		}
+		a span.label {
+			background: #fff;
+			color: #1cc09f;
+		}
+	}
+}
+
+.aside-hide {
+	width: 0;
+}
+
+.aside-show {
+	width: @aside-width;
+}

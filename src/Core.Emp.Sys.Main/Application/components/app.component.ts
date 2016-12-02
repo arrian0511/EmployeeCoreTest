@@ -25,10 +25,14 @@ export class AppComponent
 	public mPosition:		string;
 	public mImgUrl: 		string;
 
+
+	public mSideToggleFlag: boolean;
+	public mIsCollapse: boolean;
+
 	public mToggleMode:		string;		// Side Bar Toggle Mode
+	public mToggleFlag:		boolean;	// Toggle Flag
 	public Title:			string;		// Title
 	public Message:			string;		// Message
-	public mToggleFlag:		boolean;	// Toggle Flag
 
 	constructor() {
 		this.mUserName = "Arrian Pascual";
@@ -40,6 +44,13 @@ export class AppComponent
 		this.mToggleMode = "show";
 		this.Title = "EMPLOYEES MANAGEMENT SYSTEM"; 
 		this.Message = "This will enable you to check each employee daily time record, or daily task with regards to their projects";
+
+		this.mSideToggleFlag = true;
+		this.mIsCollapse = false;
+	}
+
+	public OnCollapse() {
+		this.mIsCollapse = !this.mIsCollapse;
 	}
 
 	public OnToggleSidebarEvent () {
