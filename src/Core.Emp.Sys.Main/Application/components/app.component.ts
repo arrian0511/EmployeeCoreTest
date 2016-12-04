@@ -1,4 +1,4 @@
-﻿import {Component, Input, trigger, state, style, transition, animate} from '@angular/core';
+﻿import {Component, Input, trigger, state, style, transition, keyframes, animate, ChangeDetectorRef} from '@angular/core';
 
 @Component({
 	selector: 'app',
@@ -10,12 +10,21 @@
 			state('hide', style({ transform: "translateX(-100%)"})),
 			transition('show <=> hide', animate('300ms'))
 		]),
-		trigger('OnAnimateUserPanel', [
-			state('in', style({ opacity: 1, transform: "translateX(40)"})),
-			transition('void => *', [style({opacity: 0, transform: 'translateX(100%)'}), animate('0.5s')]),
-			transition('* => void', [style({opacity: 0, transform: 'translateX(0%)'}), animate('0.5s')]),
+		trigger('fade', [
+			transition('void => *', [
+				animate("2000ms", keyframes([
+					style({opacity: 0, transform: 'translate3d(40px, 0, 0)', offset: 0}),
+					style({opacity: 1, transform: 'translate3d(0, 0, 0)', offset: 1})
+				]))
+			]),
+			transition('* => void', [
+				animate("2000ms", keyframes([
+					style({opacity: 1, transform: 'translate3d(0, 0, 0)', offset: 0}),
+					style({opacity: 0, transform: 'translate3d(40px, 0, 0)', offset: 1}),
+				]))
+			])
 		])
-	]	
+	]
 })
 
 export class AppComponent
@@ -25,12 +34,12 @@ export class AppComponent
 	public mPosition:		string;
 	public mImgUrl: 		string;
 
-
 	public mSideToggleFlag: boolean;
 	public mIsCollapse: boolean;
 
-	public mToggleMode:		string;		// Side Bar Toggle Mode
 	public mToggleFlag:		boolean;	// Toggle Flag
+
+	public mLgSideBar:		boolean;
 	public Title:			string;		// Title
 	public Message:			string;		// Message
 
@@ -41,7 +50,7 @@ export class AppComponent
 		this.mImgUrl = "contents/img/user3-128x128.jpg";
 
 		this.mToggleFlag = true;
-		this.mToggleMode = "show";
+		this.mLgSideBar = true;
 		this.Title = "EMPLOYEES MANAGEMENT SYSTEM"; 
 		this.Message = "This will enable you to check each employee daily time record, or daily task with regards to their projects";
 
@@ -51,10 +60,11 @@ export class AppComponent
 
 	public OnCollapse() {
 		this.mIsCollapse = !this.mIsCollapse;
+		this.mToggleFlag = !this.mToggleFlag;
+		this.mLgSideBar = !this.mLgSideBar;
 	}
 
 	public OnToggleSidebarEvent () {
 		this.mToggleFlag = !this.mToggleFlag;
-		this.mToggleMode = this.mToggleMode == 'show' ? 'hide' : 'show';
 	}
 }

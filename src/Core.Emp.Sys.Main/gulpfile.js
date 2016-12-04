@@ -98,7 +98,7 @@ gulp.task('clean:contents', function () {
 // Compile Less contents
 gulp.task('copy:contents', ['clean:contents'], function () {
 	/// Compile Less Files and Move to CSS Folder
-	gulp.src(srcPaths.contents + '/less/application/main.less')
+	gulp.src(srcPaths.contents + '/less/application/*.less')
 		.pipe(gp_sourcemaps.init())
 		.pipe(gp_less())
 		.pipe(gp_sourcemaps.write('.'))
