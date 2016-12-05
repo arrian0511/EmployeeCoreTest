@@ -50,7 +50,7 @@ export class AppComponent
 		this.mImgUrl = "contents/img/user3-128x128.jpg";
 
 		this.mToggleFlag = true;
-		this.mLgSideBar = true;
+		this.mLgSideBar = false;
 		this.Title = "EMPLOYEES MANAGEMENT SYSTEM"; 
 		this.Message = "This will enable you to check each employee daily time record, or daily task with regards to their projects";
 

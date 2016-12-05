@@ -1,13 +1,11 @@
-
 // Side Bar
 .sidebar {
-	position: fixed;
+	position: absolute;
 	top: 0;
 	left: 0;
 	width: @sidebar-width;
 	height: @sidebar-height;
 	margin: 0;
-	overflow-x: hidden;
 	font-size: 12px;
 	font-weight: 200;
 	transition: 0.5s;
@@ -45,62 +43,66 @@
 		> li.active {
 			border-left: 4px solid #19aa8d;
 			background: #293846;
-			> a {
+			a {
 				color: #ffffff;
 			}
 		}
-		> li {
-			> a {
-				color: #a7b1c2;
-				font-weight: 600;
-				padding: 14px 20px 14px 25px;
-				> i {
-					margin-right: 6px;
-				}
-			}
-			> a:hover,
-			> a:focus {
-				background-color: #293846;
-				color: white;
-			}
+	}
+}
+
+li.nav-first-level {
+	a {
+		color: #a7b1c2;
+		font-weight: 600;
+		padding: 14px 20px 14px 25px;
+		> i {
+			margin-right: 6px;
 		}
-		.nav-second-level {
-			> li.active {
-				border: none;
-			}
-			li a {
+		&:hover,
+		&:focus {
+			background-color: #293846;
+			color: white;
+		}
+	}
+	ul.nav-second-level {
+		li {
+			border-bottom: none !important;
+			a {
 				padding: 7px 10px 7px 10px;
 				padding-left: 52px;
 			}
-			li:last-child {
+			&:last-child {
 				margin-bottom: 10px;
+			}
+			&.active {
+				border: none;
 			}
 		}
 	}
+}
 
-	.special-link {
-		a {
-			background: #1ab394;
-		}
-		a:hover,
-		a:focus {
+li.special-link {
+	a {
+		background: #1ab394;
+		&:hover,
+		&:focus {
 			background: #17987e !important;
 		}
-		a span.label {
+		span.label {
 			background: #fff;
 			color: #1ab394;
 		}
 	}
+}
 
-	.landing-link {
-		a {
-			background: #1cc09f;
-		}
-		a:hover,
-		a:focus {
+li.landing-link {
+	a {
+		background: #1cc09f;
+		&:hover,
+		&:focus {
 			background: #1ab394 !important;
 		}
-		a span.label {
+		&.span.label {
 			background: #fff;
 			color: #1cc09f;
 		}
@@ -114,18 +116,49 @@
 	height: @mini-sidebar-height;
 	background-color: @mini-sidebar-bg-color;
 	color: @mini-sidebar-color;
-	.nav > li.nav-header {
-		padding: 0;
-		background-color: #1ab394;
-		> .logo-element {
-			display: block;
+	.nav {
+		> li.nav-header {
+			padding: 0;
+			background-color: #1ab394;
+			> .logo-element {
+				display: block;
+			}
 		}
-	}
-	.nav li a {
-		font-size: 16px;
-	}
-	.nav-label,
-	.nav li a span {
-		display: none;
+		> li {
+			> a {
+				font-size: 16px;
+				.nav-label,
+				span {
+					display: none;
+				}
+			}
+			.nav-second-level {
+				position: absolute;
+				left: 70px;
+				top: 0px;
+				background-color: #2f4050;
+				padding: 10px 10px 10px 10px;
+				font-size: 12px;
+				display: block;
+				border-radius: 0;
+				min-width: 140px;
+				height: auto;
+				li {
+					&:last-child {
+						margin-bottom: 10px;
+					}
+					a {
+						font-size: 12px;
+						border-radius: 3px;
+						padding: 10px 10px 10px 15px;
+					}
+				}
+			}
+			&.active {
+				> .nav-second-level {
+					left: 65px;
+				}
+			}
+		}
 	}
 }
