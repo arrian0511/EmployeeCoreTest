@@ -40,72 +40,76 @@
 				padding: 18px 0;
 			}
 		}
-		> li.active {
+
+		> .active {
 			border-left: 4px solid #19aa8d;
 			background: #293846;
 			a {
 				color: #ffffff;
 			}
 		}
-	}
-}
 
-li.nav-first-level {
-	a {
-		color: #a7b1c2;
-		font-weight: 600;
-		padding: 14px 20px 14px 25px;
-		> i {
-			margin-right: 6px;
-		}
-		&:hover,
-		&:focus {
-			background-color: #293846;
-			color: white;
-		}
-	}
-	ul.nav-second-level {
-		li {
-			border-bottom: none !important;
+		> li.nav-first-level {
 			a {
-				padding: 7px 10px 7px 10px;
-				padding-left: 52px;
+				color: #a7b1c2;
+				font-weight: 600;
+				padding: 14px 20px 14px 25px;
+				> i {
+					margin-right: 6px;
+				}
+				&:focus,
+				&:hover {
+					background: #293846;
+					color: white;
+				}
 			}
-			&:last-child {
-				margin-bottom: 10px;
-			}
-			&.active {
-				border: none;
+			ul.nav-second-level {
+				li {
+					border-bottom: none !important;
+					a {
+						padding: 7px 10px 7px 10px;
+						padding-left: 52px;
+						&:focus {
+							border-left: none;
+						}
+					}
+					&:last-child {
+						margin-bottom: 10px;
+					}
+					&.active {
+						border: none;
+					}
+				}
 			}
 		}
-	}
-}
 
-li.special-link {
-	a {
-		background: #1ab394;
-		&:hover,
-		&:focus {
-			background: #17987e !important;
+		> li.special-link {
+			a {
+				background: #1ab394;
+				&:hover,
+				&:focus {
+					background: #17987e !important;
+				}
+				span.label {
+					background: #fff;
+					color: #1ab394;
+				}
+			}
 		}
-		span.label {
-			background: #fff;
-			color: #1ab394;
-		}
-	}
-}
 
-li.landing-link {
-	a {
-		background: #1cc09f;
-		&:hover,
-		&:focus {
-			background: #1ab394 !important;
-		}
-		&.span.label {
-			background: #fff;
-			color: #1cc09f;
-		}
+		> li.landing-link {
+			a {
+				background: #1cc09f;
+				&:hover,
+				&:focus {
+					background: #1ab394 !important;
+				}
+				span.label {
+					background: #fff;
+					color: #1cc09f;
+				}
+			}
+		}		
 	}
 }
 
@@ -124,15 +128,15 @@ li.landing-link {
 				display: block;
 			}
 		}
-		> li {
-			> a {
+		> li.nav-first-level {
+			a {
 				font-size: 16px;
 				.nav-label,
 				span {
 					display: none;
 				}
 			}
-			.nav-second-level {
+			ul.nav-second-level {
 				position: absolute;
 				left: 70px;
 				top: 0px;
@@ -151,6 +155,7 @@ li.landing-link {
 						font-size: 12px;
 						border-radius: 3px;
 						padding: 10px 10px 10px 15px;
+						padding-left: 0;
 					}
 				}
 			}

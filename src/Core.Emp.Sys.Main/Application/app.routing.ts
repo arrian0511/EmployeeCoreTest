@@ -9,11 +9,11 @@ import {EmpCreateComponent} from "./components/employee/emp-create.component";
 import {EmpUpdateComponent} from "./components/employee/emp-update.component";
 
 const routes: Routes = [
-	{
-		path: '',
-		redirectTo: '/home',
-		pathMatch: 'full'
-	},
+	// {
+	// 	path: '',
+	// 	redirectTo: '/home',
+	// 	pathMatch: 'full'
+	// },
 	{
 		path: 'home',
 		component: HomeComponent
