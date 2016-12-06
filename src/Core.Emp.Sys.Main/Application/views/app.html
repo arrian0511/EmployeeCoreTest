@@ -48,7 +48,7 @@
 <!--Left Side Bar-->
 <aside [ngClass]="{'sidebar': mLgSideBar,
 				   'mini-sidebar': !mLgSideBar}">
-	<ul class="nav">
+	<ul class="nav" >
 		<li class="nav-header">
 			<div *ngIf="mLgSideBar" class="user-image">
 				<img alt="image" class="img-circle" src="contents/img/profile_small.jpg" />
@@ -79,12 +79,12 @@
 			</div>
 		</li>
 		<li class="nav-first-level" [routerLinkActive]="['active']">
-			<a href="#" [routerLink]="['/home']" (click)="isHomeClpse = !isHomeClpse">
+			<a href="#" [routerLink]="['/home']" (click)="OnToggleSidebarItem('Home')">
 				<i class="fa fa-th-large"></i> 
 				<span class="nav-label">Home</span> 
 				<span class="label label-success pull-right">NEW</span>
 			</a>
-			<ul class="nav nav-second-level" [collapse]="isHomeClpse">
+			<ul class="nav nav-second-level" [collapse]="OnRefreshSidebarItem('Home')">
 				<li><a href="#">myHome</a></li>
 				<li><a href="#">Dashboard v.2</a></li>
 				<li><a href="#">Dashboard v.3</a></li>
@@ -92,11 +92,11 @@
 			</ul>
 		</li>
 		<li class="nav-first-level" [routerLinkActive]="['active']">
-			<a [routerLink]="['/employee']" (click)="isEmpClpse = !isEmpClpse">
+			<a [routerLink]="['/employee']" (click)="OnToggleSidebarItem('Employee')">
 				<i class="fa fa-apple fa-lg"></i> 
 				<span class="nav-label">Employee</span> 
 			</a>
-			<ul class="nav nav-second-level" [collapse]="!isEmpClpse">
+			<ul class="nav nav-second-level" [collapse]="OnRefreshSidebarItem('Employee')">
 				<li><a href="#">Dashboard v.1</a></li>
 				<li><a href="#">Dashboard v.2</a></li>
 				<li><a href="#">Dashboard v.3</a></li>
@@ -107,7 +107,27 @@
 </aside>
 
 <section>
-	<router-outlet></router-outlet>
+	<!--<router-outlet></router-outlet>-->
+                <!--<p>
+                  <button type="button" class="btn btn-default" (click)="removeAngular2AccordionGroup()">
+                    Remove a group from the dynamic content!
+                  </button>
+                   <button type="button" class="btn btn-default" (click)="addAngular2AccordionGroup()">
+                    Add Content!
+                  </button>
+                </p>
+ 
+                <accordion [closeOthers]="true">
+                  <accordion-group heading="First Group Header " isGroupOpen="true">
+                    Introduction
+                  </accordion-group>
+                  <accordion-group [heading]="group.heading" *ngFor="let group of groups">
+                    {{group.content}}
+                  </accordion-group>
+                  <accordion-group heading="Last Group Header" isGroupOpen="groupOpenFlag">
+                    Additional Information
+                  </accordion-group>
+                </accordion>-->
 </section>
 	<!--Navigation Panel-->
 	<!--<div class="content-main" [ngClass]="{'content-main-collapse': mToggleFlag,

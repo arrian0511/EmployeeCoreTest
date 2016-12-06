@@ -1,5 +1,21 @@
 ﻿import {Component, Input, trigger, state, style, transition, keyframes, animate, ChangeDetectorRef} from '@angular/core';
 
+// export const SidebarItem = 
+// {
+// 	Title:		'',
+// 	ToggleFlag: 'false'
+// };
+export class SidebarItem
+{
+	public	Title:		string;
+	public	IsCollapse: boolean;
+
+	constructor(_title: string, _toggle: boolean) {
+		this.Title		= _title;
+		this.IsCollapse = _toggle;
+	}
+};
+
 @Component({
 	selector: 'app',
 	// styleUrls: ["styles/site.css"],
@@ -34,14 +50,11 @@ export class AppComponent
 	public mPosition:		string;
 	public mImgUrl: 		string;
 
-	public mSideToggleFlag: boolean;
-	public mIsCollapse: boolean;
-
+	public mIsCollapse: 	boolean;
 	public mToggleFlag:		boolean;	// Toggle Flag
-
 	public mLgSideBar:		boolean;
-	public Title:			string;		// Title
-	public Message:			string;		// Message
+
+	private _SidebarItemList: 	Array<SidebarItem>;
 
 	constructor() {
 		this.mUserName = "Arrian Pascual";
@@ -49,13 +62,9 @@ export class AppComponent
 		this.mPosition = "Software Developer";
 		this.mImgUrl = "contents/img/user3-128x128.jpg";
 
-		this.mToggleFlag = true;
 		this.mLgSideBar = true;
-		this.Title = "EMPLOYEES MANAGEMENT SYSTEM"; 
-		this.Message = "This will enable you to check each employee daily time record, or daily task with regards to their projects";
-
-		this.mSideToggleFlag = true;
 		this.mIsCollapse = false;
+		this._SidebarItemList = new Array<SidebarItem>();
 	}
 
 	public OnCollapse() {
@@ -64,7 +73,41 @@ export class AppComponent
 		this.mLgSideBar = !this.mLgSideBar;
 	}
 
-	public OnToggleSidebarEvent () {
-		this.mToggleFlag = !this.mToggleFlag;
+	public OnToggleSidebarItem (_title: string): void {
+
+		/// Add Record if it is not exist
+		var sidebarItem = this._SidebarItemList.find (_value => {
+			return _value.Title == _title;
+		});
+		if (sidebarItem == null) {
+			this._SidebarItemList.push (new SidebarItem (_title, true));
+		}
+
+		/// Close All Other Panel Items
+		for (var _idx = 0; _idx < this._SidebarItemList.length; _idx++) {
+			if (this._SidebarItemList[_idx].Title == _title) {
+				this._SidebarItemList[_idx].IsCollapse = !this._SidebarItemList[_idx].IsCollapse;
+			}
+			else {
+				this._SidebarItemList[_idx].IsCollapse = true;
+			}
+		}
+	}
+
+	public OnRefreshSidebarItem (_title: string): boolean {
+		let		isCollapse: boolean = true;	// Toggle Flag
+
+		/// Find Sidebar Item
+		var sidebarItem = this._SidebarItemList.find (_value => {
+			return _value.Title == _title;
+		});
+
+		/// Set Toggle Flag
+		if (sidebarItem != null) {
+			isCollapse = sidebarItem.IsCollapse;
+		}
+
+		/// Return ToggleFlag
+		return isCollapse;
 	}
 }
