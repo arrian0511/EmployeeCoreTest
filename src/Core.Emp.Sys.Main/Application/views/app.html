@@ -29,9 +29,10 @@
 </div>-->
 
 <!--Top Navigation-->
-<header class="mainheader">
+<div id="container-wrapper">
+	<header class="mainheader">
 
-	<div class="nav">
+	<!--<div class="nav">
         <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
         <div class="navbar-header">
             <a class="btn btn-success" (click)="OnCollapse()"><i class="fa fa-bars"></i> </a>
@@ -42,8 +43,37 @@
             </form>
         </div>
         </nav>
-	</div>
-</header>
+	</div>-->
+		
+		<nav class="navbar navbar-default navbar-static-top" role="navigation">
+			<div class="navbar-header">
+				<a class="btn" (click)="OnCollapse()"><i class="fa fa-bars"></i> </a>
+			</div>
+
+			<ul class="nav navbar-items navbar-right">
+                <li>
+                    <span class="text-muted">Welcome {{mUserName}}</span>
+                </li>
+				<li>
+					<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-envelope"></i>  <span class="label label-success label-notification">16</span>
+                    </a>
+				</li>
+				<li>
+                    <a class="dropdown-toggle count-info" href="#">
+                        <i class="fa fa-bell"></i>  <span class="label label-danger label-notification">8</span>
+                    </a>
+				</li>
+				<li>
+                    <a href="login.html">
+                        <i class="fa fa-sign-out"></i> Log out
+                    </a>
+				</li>
+			</ul>
+		</nav>
+		
+
+	</header>
 
 <!--Left Side Bar-->
 <aside [ngClass]="{'sidebar': mLgSideBar,
@@ -65,7 +95,7 @@
 						{{mPosition}}
 						<b class="caret"></b>
 					</a>
-					<ul class="dropdown-menu animated fadeInRight" dropdownMenu aria-labelledby="simple-dropdown">
+					<ul class="dropdown-menu dropdown-transition" dropdownMenu aria-labelledby="simple-dropdown">
 						<li><a href="profile.html">Profile</a></li>
 						<li><a href="contacts.html">Contacts</a></li>
 						<li><a href="mailbox.html">Mailbox</a></li>
@@ -145,3 +175,4 @@
 		</div>
 	</div>-->
 <!--</div>-->
+</div>
