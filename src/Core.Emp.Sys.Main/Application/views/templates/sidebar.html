@@ -2,6 +2,15 @@
 
 	<div [ngClass]="{'sidebar-large': mIsLarge,
 					 'sidebar-mini': !mIsLarge}">
+
+
+		<div class="sidebar-toggle">
+			<!--<span *ngIf="mIsLarge">Sidebar Panel</span>-->
+			<a href="#" (click)="OnCollapse()">
+				<i [@OnRotateIcon]="mIsLarge" class="fa fa-arrow-circle-left" aria-hidden="true"></i>
+			</a>
+		</div>
+		
 		<!--User Panel-->
 		<div class="sidebar-user">
 			<div *ngIf="mIsLarge" class="user-image">

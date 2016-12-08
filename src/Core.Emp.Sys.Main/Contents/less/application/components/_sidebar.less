@@ -19,6 +19,27 @@
 	color: @sidebar-large-color;
 }
 
+// Sidebar Toggle Panel
+.sidebar-toggle {
+	flex: 1;
+	display: flex;
+	> span {
+		font-family: 'Hind', sans-serif;
+		font-size: 1.5em;
+	}
+	> a {
+		float: right;
+		color: white;
+		text-decoration: none;
+		> i {
+			font-size: 30px;
+		}
+		&:hover {
+			cursor: pointer;
+		}
+	}
+}
+
 // Sidebar User Panel
 .sidebar-user {
 	padding: 33px 25px;
@@ -141,6 +162,12 @@
 	width: @sidebar-mini-width;
 	background-color: @sidebar-mini-bgcolor;
 	color: @sidebar-mini-color;
+	.sidebar-toggle {
+		> a {
+			float: right;
+			justify-content: flex-end;
+		}
+	}
 	.sidebar-user {
 		padding: 0;
 		background-color: #1ab394;

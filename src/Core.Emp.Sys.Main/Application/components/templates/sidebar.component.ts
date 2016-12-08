@@ -15,6 +15,14 @@ export class SidebarItem
 	selector: 'sidebar',
 	templateUrl: "views/templates/sidebar.html",
 	inputs: [
+	],
+	animations: [
+		trigger('OnRotateIcon', [
+			state('true', style ({ transform: 'rotate(0deg)' })),
+			state('false', style ({ transform: 'rotate(180deg)' })),
+			transition('true => false', animate('200ms ease-in')),
+			transition('false => true', animate('200ms ease-out'))
+		])
 	]
 })
 
@@ -50,7 +58,7 @@ export class SideBarComponent implements OnInit {
 	public OnCollapse() {
 		this.mIsCollapse = !this.mIsCollapse;
 		this.mToggleFlag = !this.mToggleFlag;
-		this.mLgSideBar = !this.mLgSideBar;
+		this.mIsLarge	 = !this.mIsLarge;
 	}
 
 	public OnToggleSidebarItem (_title: string): void {
