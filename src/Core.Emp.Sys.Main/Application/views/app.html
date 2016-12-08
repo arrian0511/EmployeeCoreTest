@@ -76,7 +76,7 @@
 	</header>
 
 <!--Left Side Bar-->
-<aside [ngClass]="{'sidebar': mLgSideBar,
+<!--<aside [ngClass]="{'sidebar': mLgSideBar,
 				   'mini-sidebar': !mLgSideBar}">
 	<ul class="nav" >
 		<li class="nav-header">
@@ -108,35 +108,44 @@
 				IN+
 			</div>
 		</li>
-		<li class="nav-first-level" [routerLinkActive]="['active']">
-			<a href="#" [routerLink]="['/home']" (click)="OnToggleSidebarItem('Home')">
+		<li class="nav-first-level" [ngClass]="{'active': !OnRefreshSidebarItem('Home')}">
+			<a href="#" (click)="OnToggleSidebarItem('Home')">
 				<i class="fa fa-th-large"></i> 
 				<span class="nav-label">Home</span> 
-				<span class="label label-success pull-right">NEW</span>
+				<span class="fa arrow"></span>
+				<span class="label new">NEW</span>
 			</a>
-			<ul class="nav nav-second-level" [collapse]="OnRefreshSidebarItem('Home')">
-				<li><a href="#">myHome</a></li>
+			<ul class="nav nav-second-level animated slideInDown" [collapse]="OnRefreshSidebarItem('Home')">
+				<li><a [routerLink]="['/home']">myHome</a></li>
 				<li><a href="#">Dashboard v.2</a></li>
 				<li><a href="#">Dashboard v.3</a></li>
 				<li><a href="#">Dashboard v.4</a></li>
 			</ul>
 		</li>
-		<li class="nav-first-level" [routerLinkActive]="['active']">
-			<a [routerLink]="['/employee']" (click)="OnToggleSidebarItem('Employee')">
+		<li class="nav-first-level" [ngClass]="{'active': !OnRefreshSidebarItem('Employee')}">
+			<a href="#" (click)="OnToggleSidebarItem('Employee')">
 				<i class="fa fa-apple fa-lg"></i> 
-				<span class="nav-label">Employee</span> 
+				<span class="nav-label">Employee</span>
+				<span class="fa arrow"></span>
 			</a>
 			<ul class="nav nav-second-level" [collapse]="OnRefreshSidebarItem('Employee')">
-				<li><a href="#">Dashboard v.1</a></li>
+				<li><a [routerLink]="['/employee']" [routerLinkActive]="['active']">Dashboard v.1</a></li>
 				<li><a href="#">Dashboard v.2</a></li>
 				<li><a href="#">Dashboard v.3</a></li>
 				<li><a href="#">Dashboard v.4</a></li>
 			</ul>
 		</li>
 	</ul>
-</aside>
+</aside>-->
+
+<sidebar>
+	
+</sidebar>
 
 <section>
+		<div class="content-value">
+			<router-outlet></router-outlet>
+		</div>
 	<!--<router-outlet></router-outlet>-->
                 <!--<p>
                   <button type="button" class="btn btn-default" (click)="removeAngular2AccordionGroup()">

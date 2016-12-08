@@ -1,41 +1,25 @@
-﻿import {Component, Input, trigger, state, style, transition, keyframes, animate, ChangeDetectorRef} from '@angular/core';
+import {Component, Input, OnInit, trigger, state, style, transition, keyframes, animate} from '@angular/core';
 
-// export const SidebarItem = 
-// {
-// 	Title:		'',
-// 	ToggleFlag: 'false'
-// };
+export class SidebarItem
+{
+	public	Title:		string;
+	public	IsCollapse: boolean;
 
+	constructor(_title: string, _toggle: boolean) {
+		this.Title		= _title;
+		this.IsCollapse = _toggle;
+	}
+};
 
 @Component({
-	selector: 'app',
-	// styleUrls: ["styles/site.css"],
-	templateUrl: "views/app.html",
-	animations: [
-		trigger('OnToggleSideBar', [
-			state('show', style({ transform: "translateX(0%)"})),
-			state('hide', style({ transform: "translateX(-100%)"})),
-			transition('show <=> hide', animate('300ms'))
-		]),
-		trigger('fade', [
-			transition('void => *', [
-				animate("2000ms", keyframes([
-					style({opacity: 0, transform: 'translate3d(40px, 0, 0)', offset: 0}),
-					style({opacity: 1, transform: 'translate3d(0, 0, 0)', offset: 1})
-				]))
-			]),
-			transition('* => void', [
-				animate("2000ms", keyframes([
-					style({opacity: 1, transform: 'translate3d(0, 0, 0)', offset: 0}),
-					style({opacity: 0, transform: 'translate3d(40px, 0, 0)', offset: 1}),
-				]))
-			])
-		])
+	selector: 'sidebar',
+	templateUrl: "views/templates/sidebar.html",
+	inputs: [
 	]
 })
 
-export class AppComponent
-{
+export class SideBarComponent implements OnInit {
+
 	public mUserName: 		string;
 	public mStatus:			string;
 	public mPosition:		string;
@@ -43,19 +27,24 @@ export class AppComponent
 
 	public mIsCollapse: 	boolean;
 	public mToggleFlag:		boolean;	// Toggle Flag
-	public mLgSideBar:		boolean;
+	public mIsLarge:		boolean;
 
 	private _SidebarItemList: 	Array<SidebarItem>;
 
 	constructor() {
-		this.mUserName = "Arrian Pascual";
-		this.mStatus = "Online";
-		this.mPosition = "Software Developer";
-		this.mImgUrl = "contents/img/user3-128x128.jpg";
+		/// Initialize Services Member
+	}
 
-		this.mLgSideBar = true;
-		this.mIsCollapse = false;
-		this._SidebarItemList = new Array<SidebarItem>();
+	ngOnInit () {
+		/// Initialize Member Variables
+		this.mUserName			= "Arrian Pascual";
+		this.mStatus			= "Online";
+		this.mPosition			= "Software Developer";
+		this.mImgUrl			= "contents/img/user3-128x128.jpg";
+
+		this.mIsLarge 			= true;
+		this.mIsCollapse		= false;
+		this._SidebarItemList	= new Array<SidebarItem>();
 	}
 
 	public OnCollapse() {
@@ -65,7 +54,6 @@ export class AppComponent
 	}
 
 	public OnToggleSidebarItem (_title: string): void {
-
 		/// Add Record if it is not exist
 		var sidebarItem = this._SidebarItemList.find (_value => {
 			return _value.Title == _title;

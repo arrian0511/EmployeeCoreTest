@@ -1,134 +1,155 @@
-// Side Bar
-.sidebar {
+// Main Sidebar Layout
+.sidebar-main {
 	position: absolute;
 	top: 0;
 	left: 0;
-	width: @sidebar-width;
-	height: @sidebar-height;
 	margin: 0;
+	height: 100%;
+	background-color: @sidebar-main-bgcolor;
+	color: @sidebar-main-color;
+	transition: 0.5s;
+}
+
+// Large Sidebar Layout
+.sidebar-large {
 	font-size: 12px;
 	font-weight: 200;
-	transition: 0.5s;
-	background-color: @sidebar-bg-color;
-	color: @sidebar-color;
-	.nav {
-		> li.nav-header {
-			padding: 33px 25px;
-			font-size: 12px;
-			background: url("../../img/patterns/header-profile.png") no-repeat;
-			> .user-image {
-				> img {
-					max-width: 45px;
-					height: auto;
-				}
+	width: @sidebar-large-width;
+	background-color: @sidebar-large-bgcolor;
+	color: @sidebar-large-color;
+}
+
+// Sidebar User Panel
+.sidebar-user {
+	padding: 33px 25px;
+	background: url("../../img/patterns/header-profile.png") no-repeat;
+	> .user-image {
+		> img {
+			max-width: 45px;
+			height: auto;
+		}
+	}
+	> .user-info {
+		display: block;
+		> div {
+			display: block;
+		}
+		.text-muted {
+			color: #8095a8;
+		}
+	}
+	> .logo-element {
+		text-align: center;
+		font-size: 18px;
+		font-weight: 600;
+		color: white;
+		display: none;
+		padding: 18px 0;
+	}
+}
+
+// Sidebar Menu Panel
+.sidebar-menu {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	.first-level {
+		position: relative;
+		a {
+			color: #a7b1c2;
+			font-weight: 600;
+			padding: 14px 20px 14px 25px;
+			display: block;
+			text-decoration: none;
+			> i {
+				margin-right: 6px;
 			}
-			> .user-info {
-				display: block;
-				> div {
-					display: block;
-				}
-				.text-muted {
-					color: #8095a8;
-				}
-			}
-			> .logo-element {
-				text-align: center;
-				font-size: 18px;
-				font-weight: 600;
+			&:focus,
+			&:hover {
+				background: #293846;
 				color: white;
-				display: none;
-				padding: 18px 0;
+			}
+			> span.new {
+				float: right;
+				margin-right: 10px;
+				margin-top: 0;
+				background-color: limegreen;
+				border-radius: 0;
 			}
 		}
-
-		> .active {
+		&.active {
 			border-left: 4px solid #19aa8d;
 			background: #293846;
 			a {
 				color: #ffffff;
 			}
 		}
-
-		> li.nav-first-level {
-			a {
-				color: #a7b1c2;
-				font-weight: 600;
-				padding: 14px 20px 14px 25px;
-				> i {
-					margin-right: 6px;
+		.second-level {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+			li {
+				border-bottom: none !important;
+				a {
+					padding: 7px 10px 7px 10px;
+					padding-left: 52px;
+					&:focus {
+						border-left: none;
+					}
 				}
-				&:focus,
-				&:hover {
-					background: #293846;
-					color: white;
+				&:last-child {
+					margin-bottom: 10px;
 				}
-			}
-			ul.nav-second-level {
-				li {
-					border-bottom: none !important;
-					a {
-						padding: 7px 10px 7px 10px;
-						padding-left: 52px;
-						&:focus {
-							border-left: none;
-						}
-					}
-					&:last-child {
-						margin-bottom: 10px;
-					}
-					&.active {
-						border: none;
-					}
+				&.active {
+					border: none;
 				}
 			}
 		}
-
-		> li.special-link {
-			a {
-				background: #1ab394;
-				&:hover,
-				&:focus {
-					background: #17987e !important;
-				}
-				span.label {
-					background: #fff;
-					color: #1ab394;
-				}
+	}
+	.special-link {
+		a {
+			background: #1ab394;
+			&:hover,
+			&:focus {
+				background: #17987e !important;
+			}
+			span.label {
+				background: #fff;
+				color: #1ab394;
 			}
 		}
-
-		> li.landing-link {
-			a {
-				background: #1cc09f;
-				&:hover,
-				&:focus {
-					background: #1ab394 !important;
-				}
-				span.label {
-					background: #fff;
-					color: #1cc09f;
-				}
+	}
+	.landing-link {
+		a {
+			background: #1cc09f;
+			&:hover,
+			&:focus {
+				background: #1ab394 !important;
 			}
-		}		
+			span.label {
+				background: #fff;
+				color: #1cc09f;
+			}
+		}
 	}
 }
 
-// Mini Sidebar
-.mini-sidebar {
-	.sidebar();
-	width: @mini-sidebar-width;
-	height: @mini-sidebar-height;
-	background-color: @mini-sidebar-bg-color;
-	color: @mini-sidebar-color;
-	.nav {
-		> li.nav-header {
-			padding: 0;
-			background-color: #1ab394;
-			> .logo-element {
-				display: block;
-			}
+// Sidebar Mini
+.sidebar-mini {
+	font-size: 16px;
+	font-weight: 200;
+	width: @sidebar-mini-width;
+	background-color: @sidebar-mini-bgcolor;
+	color: @sidebar-mini-color;
+	.sidebar-user {
+		padding: 0;
+		background-color: #1ab394;
+		> .logo-element {
+			display: block;
 		}
-		> li.nav-first-level {
+	}
+	.sidebar-menu {
+		.first-level {
 			a {
 				font-size: 16px;
 				.nav-label,
@@ -136,10 +157,15 @@
 					display: none;
 				}
 			}
-			ul.nav-second-level {
+			&.active {
+				> .second-level {
+					left: 65px;
+				}
+			}
+			.second-level {
 				position: absolute;
-				left: 70px;
 				top: 0px;
+				left: 70px;
 				background-color: #2f4050;
 				padding: 10px 10px 10px 10px;
 				font-size: 12px;
@@ -155,13 +181,7 @@
 						font-size: 12px;
 						border-radius: 3px;
 						padding: 10px 10px 10px 15px;
-						padding-left: 0;
 					}
-				}
-			}
-			&.active {
-				> .nav-second-level {
-					left: 65px;
 				}
 			}
 		}

@@ -20,7 +20,7 @@ import {EmpUpdateComponent} from "./components/employee/emp-update.component";
 
 import {FormInputComponent} from "./components/templates/form-input.component";
 
-import {SideBarComponent} from "./components/templates/side-bar.component";
+import {SideBarComponent} from "./components/templates/sidebar.component";
 
 import {SidebarModule} from 'ng2-sidebar';
 
