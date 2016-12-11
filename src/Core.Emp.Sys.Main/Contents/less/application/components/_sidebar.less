@@ -7,7 +7,6 @@
 	height: 100%;
 	background-color: @sidebar-main-bgcolor;
 	color: @sidebar-main-color;
-	transition: 0.5s;
 }
 
 // Large Sidebar Layout
@@ -21,14 +20,16 @@
 
 // Sidebar Toggle Panel
 .sidebar-toggle {
-	flex: 1;
 	display: flex;
+	justify-content: flex-end;
+	width: 100%;
 	> span {
+		width: 90%;
 		font-family: 'Hind', sans-serif;
 		font-size: 1.5em;
 	}
 	> a {
-		float: right;
+		width: 10%;
 		color: white;
 		text-decoration: none;
 		> i {
@@ -42,6 +43,7 @@
 
 // Sidebar User Panel
 .sidebar-user {
+	position: relative;
 	padding: 33px 25px;
 	background: url("../../img/patterns/header-profile.png") no-repeat;
 	> .user-image {
@@ -71,11 +73,16 @@
 
 // Sidebar Menu Panel
 .sidebar-menu {
+	position: relative;
 	list-style: none;
 	padding: 0;
 	margin: 0;
+	display: flex;
+	flex-direction: column;
+
 	.first-level {
 		position: relative;
+		flex: 1;
 		a {
 			color: #a7b1c2;
 			font-weight: 600;
@@ -106,16 +113,20 @@
 			}
 		}
 		.second-level {
+			flex: 1;
 			list-style: none;
 			padding: 0;
 			margin: 0;
 			li {
 				border-bottom: none !important;
 				a {
+					color: #a7b1c2;
 					padding: 7px 10px 7px 10px;
 					padding-left: 52px;
-					&:focus {
+					&:focus,
+					&:hover {
 						border-left: none;
+						color: #ffffff;
 					}
 				}
 				&:last-child {
@@ -128,6 +139,7 @@
 		}
 	}
 	.special-link {
+		flex: 1;
 		a {
 			background: #1ab394;
 			&:hover,
@@ -141,6 +153,7 @@
 		}
 	}
 	.landing-link {
+		flex: 1;
 		a {
 			background: #1cc09f;
 			&:hover,
@@ -162,10 +175,12 @@
 	width: @sidebar-mini-width;
 	background-color: @sidebar-mini-bgcolor;
 	color: @sidebar-mini-color;
+
 	.sidebar-toggle {
+		display: flex;
+		justify-content: flex-end;
 		> a {
-			float: right;
-			justify-content: flex-end;
+			width: auto;
 		}
 	}
 	.sidebar-user {

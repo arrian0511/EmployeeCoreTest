@@ -21,6 +21,7 @@ import {EmpUpdateComponent} from "./components/employee/emp-update.component";
 import {FormInputComponent} from "./components/templates/form-input.component";
 
 import {SideBarComponent} from "./components/templates/sidebar.component";
+import {TopBarComponent} from "./components/templates/topbar.component";
 
 import {SidebarModule} from 'ng2-sidebar';
 
@@ -35,7 +36,8 @@ import {AppRouting} from "./app.routing";
 		EmpCreateComponent,
 		EmpUpdateComponent,
 		FormInputComponent,
-		SideBarComponent
+		SideBarComponent,
+		TopBarComponent
 	],
 	imports: [
 		BrowserModule,

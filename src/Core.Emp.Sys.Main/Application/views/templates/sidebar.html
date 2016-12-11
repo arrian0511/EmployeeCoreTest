@@ -1,12 +1,11 @@
 <aside class="sidebar-main">
 
 	<div [ngClass]="{'sidebar-large': mIsLarge,
-					 'sidebar-mini': !mIsLarge}">
-
+					 'sidebar-mini': !mIsLarge}" [@OnCollapsed]="mToggleMode">
 
 		<div class="sidebar-toggle">
 			<!--<span *ngIf="mIsLarge">Sidebar Panel</span>-->
-			<a href="#" (click)="OnCollapse()">
+			<a href="#" (click)="_OnClickCollapse()">
 				<i [@OnRotateIcon]="mIsLarge" class="fa fa-arrow-circle-left" aria-hidden="true"></i>
 			</a>
 		</div>
@@ -45,14 +44,14 @@
 		<!--Menu Panel-->
 		<ul class="sidebar-menu">
 			<!--Home-->
-			<li class="first-level" [ngClass]="{'active': !OnRefreshSidebarItem('Home')}">
-				<a href="#" (click)="OnToggleSidebarItem('Home')">
+			<li class="first-level" [ngClass]="{'active': !_RefreshSidebarItem('Home')}">
+				<a href="#" (click)="_ToggleSidebarItem('Home')">
 					<i class="fa fa-th-large"></i> 
 					<span class="nav-label">Home</span> 
 					<span class="fa arrow"></span>
 					<span class="label new">NEW</span>
 				</a>
-				<ul class="second-level" [collapse]="OnRefreshSidebarItem('Home')">
+				<ul class="second-level" [collapse]="_RefreshSidebarItem('Home')">
 					<li><a [routerLink]="['/home']">myHome</a></li>
 					<li><a href="#">Dashboard v.2</a></li>
 					<li><a href="#">Dashboard v.3</a></li>
@@ -61,13 +60,13 @@
 			</li>
 
 			<!--Employee-->
-			<li class="first-level" [ngClass]="{'active': !OnRefreshSidebarItem('Employee')}">
-				<a href="#" (click)="OnToggleSidebarItem('Employee')">
+			<li class="first-level" [ngClass]="{'active': !_RefreshSidebarItem('Employee')}">
+				<a href="#" (click)="_ToggleSidebarItem('Employee')">
 					<i class="fa fa-apple fa-lg"></i> 
 					<span class="nav-label">Employee</span>
 					<span class="fa arrow"></span>
 				</a>
-				<ul class="second-level" [collapse]="OnRefreshSidebarItem('Employee')">
+				<ul class="second-level" [collapse]="_RefreshSidebarItem('Employee')">
 					<li><a [routerLink]="['/employee']" [routerLinkActive]="['active']">Dashboard v.1</a></li>
 					<li><a href="#">Dashboard v.2</a></li>
 					<li><a href="#">Dashboard v.3</a></li>

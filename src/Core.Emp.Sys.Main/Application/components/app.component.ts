@@ -1,17 +1,16 @@
 ﻿import {Component, Input, trigger, state, style, transition, keyframes, animate, ChangeDetectorRef} from '@angular/core';
 
-// export const SidebarItem = 
-// {
-// 	Title:		'',
-// 	ToggleFlag: 'false'
-// };
-
-
 @Component({
 	selector: 'app',
 	// styleUrls: ["styles/site.css"],
 	templateUrl: "views/app.html",
 	animations: [
+		trigger('OnCollapsed', [
+			state('collapsed', style ({ margin: '0px 0px 0px 70px'})),
+			state('expanded', style ({ margin: '0px 0px 0px 220px'})),
+			transition('collapsed => expanded', animate('200ms ease-in')),
+			transition('expanded => collapsed', animate('200ms 200ms ease-out'))
+		]),
 		trigger('OnToggleSideBar', [
 			state('show', style({ transform: "translateX(0%)"})),
 			state('hide', style({ transform: "translateX(-100%)"})),
@@ -41,64 +40,18 @@ export class AppComponent
 	public mPosition:		string;
 	public mImgUrl: 		string;
 
-	public mIsCollapse: 	boolean;
-	public mToggleFlag:		boolean;	// Toggle Flag
-	public mLgSideBar:		boolean;
-
-	private _SidebarItemList: 	Array<SidebarItem>;
+	public mSidebarStatus: 	string;
 
 	constructor() {
 		this.mUserName = "Arrian Pascual";
 		this.mStatus = "Online";
 		this.mPosition = "Software Developer";
 		this.mImgUrl = "contents/img/user3-128x128.jpg";
-
-		this.mLgSideBar = true;
-		this.mIsCollapse = false;
-		this._SidebarItemList = new Array<SidebarItem>();
+		this.mSidebarStatus = "expanded";
 	}
 
-	public OnCollapse() {
-		this.mIsCollapse = !this.mIsCollapse;
-		this.mToggleFlag = !this.mToggleFlag;
-		this.mLgSideBar = !this.mLgSideBar;
-	}
-
-	public OnToggleSidebarItem (_title: string): void {
-
-		/// Add Record if it is not exist
-		var sidebarItem = this._SidebarItemList.find (_value => {
-			return _value.Title == _title;
-		});
-		if (sidebarItem == null) {
-			this._SidebarItemList.push (new SidebarItem (_title, true));
-		}
-
-		/// Close All Other Panel Items
-		for (var _idx = 0; _idx < this._SidebarItemList.length; _idx++) {
-			if (this._SidebarItemList[_idx].Title == _title) {
-				this._SidebarItemList[_idx].IsCollapse = !this._SidebarItemList[_idx].IsCollapse;
-			}
-			else {
-				this._SidebarItemList[_idx].IsCollapse = true;
-			}
-		}
-	}
-
-	public OnRefreshSidebarItem (_title: string): boolean {
-		let		isCollapse: boolean = true;	// Toggle Flag
-
-		/// Find Sidebar Item
-		var sidebarItem = this._SidebarItemList.find (_value => {
-			return _value.Title == _title;
-		});
-
-		/// Set Toggle Flag
-		if (sidebarItem != null) {
-			isCollapse = sidebarItem.IsCollapse;
-		}
-
-		/// Return ToggleFlag
-		return isCollapse;
+	private _OnGetSidebarToggle (_toggle: string)
+	{
+		this.mSidebarStatus = _toggle;
 	}
 }
