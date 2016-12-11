@@ -1,0 +1,53 @@
+
+.topbar-container {
+	padding: 0;
+	margin: 0px 0px 0px @sidebar-large-width;
+	width: @topbar-main-width;
+	height: @topbar-main-height;
+	background-color: @topbar-main-bgcolor;
+	border-bottom: 1px solid #e7eaec;
+}
+
+.topbar-user {
+	flex: 1;
+	position: relative;
+	padding: 0;
+
+	a {
+		font-size: 14px;
+		&:focus,
+		&:hover {
+			background-color: transparent;
+		}
+	}
+}
+
+.topbar-menu {
+	display: flex;
+	justify-content: flex-end;
+	margin: 0;
+	list-style: none;
+
+	li {
+		display: inline-block;
+		padding: 15px 10px;
+		&:last-child {
+			margin-right: 40px;
+		}
+		> span {
+			padding: 15px 10px;
+			min-height: 30px;
+			font-size: 14px;
+		}
+		a {
+			font-size: 14px;
+			&:focus,
+			&:hover {
+				background-color: transparent;
+			}
+			span {
+				position: relative;
+			}
+		}
+	}
+}
