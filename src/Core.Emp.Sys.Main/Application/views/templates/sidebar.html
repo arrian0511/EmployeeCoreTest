@@ -3,6 +3,7 @@
 	<div [ngClass]="{'sidebar-large': mIsLarge,
 					 'sidebar-mini': !mIsLarge}" [@OnCollapsed]="mToggleMode">
 
+		<!--Toggle (Collapse/Expand)-->
 		<div class="sidebar-toggle">
 			<!--<span *ngIf="mIsLarge">Sidebar Panel</span>-->
 			<a (click)="_OnClickCollapse()">
@@ -76,9 +77,3 @@
 		</ul>
 	</div>
 </aside>
-
-<section>
-		<div class="content-value">
-			<router-outlet></router-outlet>
-		</div>
-	</section>
