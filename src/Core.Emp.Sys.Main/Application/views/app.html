@@ -54,16 +54,14 @@
 				</li>
 			</ul>
 		</nav>
-		
-
 	</header>-->
-	<topbar>Loading Topbar Panel...</topbar>
 
+	<!--Top Bar-->
+	<topbar [InToggleMode]="mSidebarStatus">Loading Topbar Panel...</topbar>
+
+	<!--Side Bar-->
 	<sidebar (OnToggleMode)="_OnGetSidebarToggle($event)">Loading Sidebar Panel...</sidebar>
 
-	<section [@OnCollapsed]="mSidebarStatus">
-		<div class="content-value">
-			<router-outlet></router-outlet>
-		</div>
-	</section>
+	<!--Router Link-->
+	<content [InToggleMode]="mSidebarStatus">Loading Content Panel...</content>
 </div>

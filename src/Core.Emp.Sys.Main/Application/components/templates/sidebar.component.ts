@@ -70,7 +70,7 @@ export class SideBarComponent implements OnInit {
 		this.mIsLarge	 = !this.mIsLarge;
 		this.mToggleMode = this.mToggleMode == "expanded" ? "collapsed" : "expanded";
 		this.OnToggleMode.emit (this.mToggleMode);
-		this._CloseMenuItems ();
+		// this._CloseMenuItems ();
 	}
 
 	private _CloseMenuItems () {

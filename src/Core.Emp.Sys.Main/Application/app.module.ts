@@ -22,6 +22,7 @@ import {FormInputComponent} from "./components/templates/form-input.component";
 
 import {SideBarComponent} from "./components/templates/sidebar.component";
 import {TopBarComponent} from "./components/templates/topbar.component";
+import {ContentComponent} from "./components/templates/content.component";
 
 import {SidebarModule} from 'ng2-sidebar';
 
@@ -37,7 +38,8 @@ import {AppRouting} from "./app.routing";
 		EmpUpdateComponent,
 		FormInputComponent,
 		SideBarComponent,
-		TopBarComponent
+		TopBarComponent,
+		ContentComponent
 	],
 	imports: [
 		BrowserModule,
