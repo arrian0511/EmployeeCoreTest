@@ -28,6 +28,7 @@
 			'moment': 'npm:moment/moment.js',
 			'ng2-bootstrap/ng2-bootstrap': 'npm:ng2-bootstrap/bundles/ng2-bootstrap.umd.js',
 			'angular2-fontawesome': 'npm:angular2-fontawesome',
+			'web-animations-js': 'npm:web-animations-js',
 
 			// other libraries
 			'rxjs': 'npm:rxjs',
@@ -50,6 +51,9 @@
 			'ng2-sidebar': {
 				main: './lib/index.js',
 				defaultExtension: 'js'
+			},
+			'web-animations-js': {
+				main: 'web-animations.min.js'
 			},
 			'angular2-fontawesome': { 
 				defaultExtension: 'js'

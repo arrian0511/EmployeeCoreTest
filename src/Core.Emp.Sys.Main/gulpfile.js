@@ -28,7 +28,8 @@ var srcPaths = {
 		'node_modules/chart.js/**',
 		'node_modules/moment/**',
 		'node_modules/angular2-fontawesome/**',
-		'node_modules/font-awesome/**'
+		'node_modules/font-awesome/**',
+		'node_modules/web-animations-js/**'
 	],
 	contents: [
 		'Contents/**'

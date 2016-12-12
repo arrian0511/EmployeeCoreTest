@@ -6,6 +6,7 @@ import {ChartsModule} from "ng2-charts/ng2-charts";
 import {Ng2BootstrapModule} from "ng2-bootstrap/ng2-bootstrap";
 import {Angular2FontawesomeModule} from 'angular2-fontawesome/angular2-fontawesome'
 import "rxjs/Rx";
+import 'web-animations-js';
 
 import {AppService} from "./services/app.service";
 
