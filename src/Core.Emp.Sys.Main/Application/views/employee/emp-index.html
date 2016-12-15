@@ -87,7 +87,14 @@
 	<label class="text-success text-center">{{mTitle}}</label>
 	<label class="text-success text-center">{{mMessage}}</label>
 
+    <div class="table-container">
+        <div class="table-header">
+            <span>Employee List of Details</span>
+        </div>
+
+        <div class="table-item">
 	<a [routerLink]="['/employee/create']">Create New</a>
+            
 	<table class="table table-striped">
 		<thead>
 			<tr>
@@ -112,4 +119,6 @@
 			</tr>
 		</tbody>
 	</table>
+    </div>
+    </div>
 </div>
