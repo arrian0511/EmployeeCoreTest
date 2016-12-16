@@ -81,4 +81,10 @@ export class EmpIndexComponent implements OnInit
 			);
 		}
 	}
+
+	    ifTrue: boolean = false;
+
+    change() {
+        this.ifTrue = !this.ifTrue;
+    }
 }
